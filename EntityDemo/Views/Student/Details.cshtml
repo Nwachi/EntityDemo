@@ -1,0 +1,18 @@
+﻿@model EntityDemo.Models.Student
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Stud_Name's Details</h2>
+<ul>
+    <li>Email : @Model.Email</li>
+    <li>Course : @Model.Course.Course_Name</li>
+    <li>Semester : 
+          @if (@Model.Course.Semester > 1)
+          {
+        @Model.Course.Semester <span>Semester</span>
+          }
+          else { @Model.Course.Semester }</li>
+
+</ul>
+

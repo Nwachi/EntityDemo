@@ -148,6 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
@@ -165,9 +166,23 @@
     <Compile Include="Migrations\201810081125562_AddCourse.Designer.cs">
       <DependentUpon>201810081125562_AddCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810100940526_IndexModel.cs" />
+    <Compile Include="Migrations\201810100940526_IndexModel.Designer.cs">
+      <DependentUpon>201810100940526_IndexModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810100947557_Create.cs" />
+    <Compile Include="Migrations\201810100947557_Create.Designer.cs">
+      <DependentUpon>201810100947557_Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810101000291_InsertFaculty.cs" />
+    <Compile Include="Migrations\201810101000291_InsertFaculty.Designer.cs">
+      <DependentUpon>201810101000291_InsertFaculty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AptechDb.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Faculty.cs" />
+    <Compile Include="Models\Module.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -210,6 +225,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Faculty\Index.cshtml" />
+    <Content Include="Views\Faculty\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -236,6 +253,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810081125562_AddCourse.resx">
       <DependentUpon>201810081125562_AddCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810100940526_IndexModel.resx">
+      <DependentUpon>201810100940526_IndexModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810100947557_Create.resx">
+      <DependentUpon>201810100947557_Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810101000291_InsertFaculty.resx">
+      <DependentUpon>201810101000291_InsertFaculty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

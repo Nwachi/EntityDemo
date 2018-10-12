@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EntityDemo.Models.Faculty>
+
+@*IEnumerable<> is used to get Faculty Model*@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index of Aptech Faculty</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>S/N</th>
+            <th>Name</th>
+            <th>Module</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+
+
+
+    @foreach (var faculty in Model)
+    {
+        <tr>
+            <td>@faculty.Id</td>
+            <td>@faculty.Name</td>
+            <td>@faculty.Module.Module_Name</td>
+            <td>@Html.ActionLink("Details", "Details", new { id = faculty.Id })</td>
+        </tr>
+    }
+</table>
+

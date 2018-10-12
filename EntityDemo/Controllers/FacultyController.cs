@@ -8,11 +8,12 @@ using System.Data.Entity;
 
 namespace EntityDemo.Controllers
 {
-    public class StudentController : Controller
+    public class FacultyController : Controller
     {
         //This is the connection to the database
         private AptechDb _context;
-            public StudentController()
+
+        public FacultyController()
         {
             _context = new AptechDb();
         }
@@ -22,23 +23,26 @@ namespace EntityDemo.Controllers
         {
             _context.Dispose();
         }
-        // GET: Student/Index
+
+
+        // GET: Faculty
         public ActionResult Index()
         {
-            //Used to get the list of all the students in the db.
-            var students = _context.Students.Include(c => c.Course).ToList();
-            return View(students);
+            // c => c."Name of the Module to be included"
+             
+            //Used to get the list of faculty.
+            var faculty = _context.Faculty.Include( c => c.Module).ToList();
+            return View(faculty);
         }
 
         public ActionResult Details(int id)
         {
-            
-            var student = _context.Students.Include(c => c.Course).SingleOrDefault(c => c.Id == id);
+            var faculty = _context.Faculty.Include(c => c.Module).SingleOrDefault(c => c.Id == id);
 
-            if (student == null)
+            if (faculty == null)
                 return HttpNotFound();
 
-            return View(student);
+            return View(faculty);
         }
     }
 }

@@ -7,9 +7,7 @@ using System.Web;
 namespace EntityDemo.Models
 {
     public class AptechDb : DbContext
-    {
-
-         
+    {  
 
         public AptechDb() : base("AptechDb")
         {

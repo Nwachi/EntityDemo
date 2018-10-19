@@ -97,22 +97,20 @@ namespace EntityDemo.Controllers
 
         public ActionResult Delete(int id)
         {
-            var student = _context.Students.SingleOrDefault(s => s.Id == id);
-            if (student == null)
+            //Used to get the student id
+            var student = _context.Students.Single(c => c.Id == id);
+
+            if (student.Id == 0)
             {
                 return HttpNotFound();
 
             }
 
             else
-            {
-                var studentInDb = _context.Students.Single(s => s.Id == student.Id);
-                studentInDb.Stud_Name = student.Stud_Name;
-                studentInDb.Email = student.Email;
-                studentInDb.CourseId = student.CourseId;
-            }
+                _context.Students.Remove(student);
 
-            _context.Students.Remove(student);
+            //Always add the SaveChanges() when making updates.
+            _context.SaveChanges();
 
             return RedirectToAction("Index", "Student");
 

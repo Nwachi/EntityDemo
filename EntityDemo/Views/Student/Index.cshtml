@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<EntityDemo.Models.Student>
+
 @{
     ViewBag.Title = "Index";
 }
@@ -26,18 +27,25 @@
     </thead>
     @foreach (var student in Model)
     {
+        
         <tr>
             <td>@student.Id</td>
             <td>@student.Stud_Name</td>
             <td>@student.Course.Course_Name</td>
             <td>@Html.ActionLink("Details", "Details", new { id = student.Id })</td>
             <td>@Html.ActionLink("Edit","Edit",new { id = student.Id })</td>
-            <td>
-                @using (Html.BeginForm("Delete", "Student"))
-                <div class="form-group">
-                     <button type="submit" class="btn btn-primary">Delete Student</button>
-                </div>
-            </td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = student.Id }, new { @class = "btn btn-primary"})</td>
+             
+            @*@using (Html.BeginForm("Delete", "Student", new))
+                {
+                <td>
+                   
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Delete Student</button>
+                    </div>
+                </td>
+            }*@
+           
         </tr>
     }
 </table>

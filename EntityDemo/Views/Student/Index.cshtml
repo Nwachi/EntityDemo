@@ -5,6 +5,14 @@
 
 <h2>All Students</h2>
 
+@using (Html.BeginForm("New", "Student"))
+{
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">New Student</button>
+    </div>
+}
+
+
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -12,6 +20,8 @@
             <th>Name</th>
             <th>Course</th>
             <th>Details</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     @foreach (var student in Model)
@@ -20,7 +30,14 @@
             <td>@student.Id</td>
             <td>@student.Stud_Name</td>
             <td>@student.Course.Course_Name</td>
-            <td>@Html.ActionLink("Details","Details",new { id = student.Id })</td>
+            <td>@Html.ActionLink("Details", "Details", new { id = student.Id })</td>
+            <td>@Html.ActionLink("Edit","Edit",new { id = student.Id })</td>
+            <td>
+                @using (Html.BeginForm("Delete", "Student"))
+                <div class="form-group">
+                     <button type="submit" class="btn btn-primary">Delete Student</button>
+                </div>
+            </td>
         </tr>
     }
 </table>
